@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Rangga Hijriawan Haryadi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-y: scroll;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #0b1020;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.200) 1px, transparent 1px);
+            background-size: 24px 24px;
+            position: relative;
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 20px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            background-color: #0b1020e7;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #26304d;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-box {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 10px;
+
+        }
+
+        .navbar a {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgb(218, 217, 217);
+        }
+
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .nav-link a {
+            text-decoration: none;
+            padding: 10px 10px;
+            border-radius: 20px;
+
+        }
+
+        .nav-link a:hover {
+            background-color: #7b91ff42;
+            color: white;
+        }
+
+        .nav-link a.active {
+            background-color: #7b92ff !important;
+            color: black !important;
+        }
+
+        .box {
+            width: 100%;
+            flex: 1;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #26304d;
+        }
+
+        .box-content {
+            max-width: 1300px;
+            margin: 0 auto 40px auto;
+            padding: 10px 20px;
+            background-color: #0b1020;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border-radius: 8px;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.200) 1px, transparent 1px);
+            background-size: 24px 24px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .content h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #7b92ff;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: white;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            max-width: 600px;
+            text-align: justify;
+        }
+
+        .button-grup {
+            display: flex;
+            gap: 20px;
+        }
+
+        .button-grup .contact-button a,
+        .button-grup .cv-button a {
+            display: inline-block;
+            padding: 13px 15px;
+            text-decoration: none;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 16px;
+            font-family: sans-serif;
+            transition: all 0.2s ease;
+        }
+
+        .button-grup .contact-button a {
+            background-color: white;
+            color: black;
+            border: 2px solid white;
+        }
+
+        .button-grup .cv-button a {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .button-grup .contact-button a:hover {
+            background-color: #7b92ff;
+            color: white;
+            border-color: #7b92ff;
+        }
+
+        .button-grup .cv-button a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle at center, #112d7a69 45%, rgba(11, 16, 32, 0) 75%);
+            border-radius: 4px;
+        }
+
+        .image-bg-card {
+            width: 320px;
+            height: 400px;
+            border-radius: 160px 160px 0 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-bg-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .image-bg-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            border-radius: inherit;
+        }
+
+        .box-work {
+            max-width: 1300px;
+            margin: 0 auto 30px auto;
+            padding: 25px 20px;
+            background-color: #0b1020e7;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .box-work h2 {
+            font-size: 22px;
+            font-weight: Bold;
+            color: white;
+            margin-bottom: 10px;
+
+        }
+
+        .box-work>p {
+            font-size: 16px;
+            color: white;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+
+        .grid-card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-frontend,
+        .grid-backend,
+        .grid-database,
+        .grid-tools {
+            background-color: #1c233983;
+            border: 1px solid rgba(255, 255, 255, 0.368);
+            border-radius: 12px;
+            padding: 24px;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card-top {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .card-icon {
+            display: flex;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            padding: auto;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .card-top h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 8px;
+
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+
+        }
+
+        .group {
+            background-color: #131b31;
+            border: 1px solid rgba(255, 255, 255, 0.363);
+            color: #e2e8f0;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .card-groups {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .grid-frontend:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(15, 112, 248, 0.3);
+            border-color: rgb(123, 145, 255);
+        }
+
+        .grid-backend:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(172, 255, 47, 0.3);
+            border-color: greenyellow;
+        }
+
+        .grid-database:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 166, 0, 0.3);
+            border-color: orange;
+        }
+
+        .grid-tools:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(216, 112, 147, 0.3);
+            border-color: palevioletred;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #111827;
+            color: #eef2ff;
+            padding: 25px 20px;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer p {
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 10px;
+            }
+
+            .nav-box {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0;
+            }
+
+            .navbar .logo {
+                font-size: 18px;
+            }
+
+            .nav-link {
+                gap: 10px;
+            }
+
+            .nav-link a {
+                font-size: 15px;
+            }
+
+            .box-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .content {
+                text-align: left;
+            }
+
+            .content p {
+                max-width: 100%;
+            }
+
+            .button-grup {
+                justify-content: flex-start;
+            }
+
+            .image-bg-card {
+                width: 280px;
+                height: 350px;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-box">
+            <span class="logo">RHH</span>
+            <ul class="nav-link">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="box">
+        <div class="box-content">
+            <div class="content">
+                <h1>Hi, I'm Rangga Hijriawan Haryadi</h1>
+                <h3>FullStack Web Developer.</h3>
+                <p>
+                    I focus on web development, from database architecture to responsive user interfaces using HTML5,
+                    CSS3,
+                    Tailwind CSS, PHP, and Laravel.
+                </p>
+                <div class="button-grup">
+                    <div class="contact-button">
+                        <a href="contact.html"><i class="fa-brands fa-whatsapp"></i> Contact</a>
+                    </div>
+                    <div class="cv-button">
+                        <a href="cv.pdf"><i class="fa-solid fa-download"></i> Download CV</a>
+                    </div>
+                </div>
+            </div>
+            <div class="image">
+                <div class="background-image"></div>
+                <div class="image-bg-card">
+                    <img src="foto.jpg" alt="Rangga Hijriawan Haryadi">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="box">
+        <div class="box-work">
+            <h2>What I Work With</h2>
+            <p>I am a fullstack developer with experience in tools/technologies.</p>
+            <div class="grid-card">
+                <div class="grid-frontend">
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fa-solid fa-code"></i></div>
+                        <h3>Frontend</h3>
+                        <p class="card-description">Responsive, accessible across all device.</p>
+                    </div>
+                    <div class="card-groups">
+                        <span class="group">HTML5</span>
+                        <span class="group">CSS3</span>
+                        <span class="group">Tailwind CSS</span>
+                    </div>
+                </div>
+
+                <div class="grid-backend">
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fa-solid fa-server"></i></div>
+                        <h3>Backend</h3>
+                        <p class="card-description">Authenticator and APIs a system.</p>
+                    </div>
+                    <div class="card-groups">
+                        <span class="group">PHP</span>
+                        <span class="group">Laravel</span>
+                    </div>
+                </div>
+
+                <div class="grid-database">
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fa-solid fa-database"></i></div>
+                        <h3>Database</h3>
+                        <p class="card-description">Schema design and queries.</p>
+                    </div>
+                    <div class="card-groups">
+                        <span class="group">MySQL</span>
+                    </div>
+                </div>
+
+                <div class="grid-tools">
+                    <div class="card-top">
+                        <div class="card-icon"><i class="fa-solid fa-toolbox"></i></div>
+                        <h3>Tools</h3>
+                        <p class="card-description">Development Environment and workflow.</p>
+                    </div>
+                    <div class="card-groups">
+                        <span class="group">Git/Github</span>
+                        <span class="group">VS Code</span>
+                        <span class="group">Visual Studio</span>
+                        <span class="group">Figma</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Rangga Hijriawan Haryadi. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

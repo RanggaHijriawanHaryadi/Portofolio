@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Rangga Hijriawan Haryadi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-y: scroll;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #0b1020;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.200) 1px, transparent 1px);
+            background-size: 24px 24px;
+            position: relative;
+
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 20px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            background-color: #0b1020e7;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #26304d;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-box {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 10px;
+
+        }
+
+        .navbar a {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgb(218, 217, 217);
+        }
+
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .nav-link a {
+            text-decoration: none;
+            padding: 10px 10px;
+            border-radius: 20px;
+        }
+
+        .nav-link a:hover {
+            background-color: #7b91ff42;
+            color: white;
+        }
+
+        .nav-link a.active {
+            background-color: #7b92ff !important;
+            color: black !important;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #94a3b8;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 24px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #10b981;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #10b981;
+        }
+
+        .contact-container {
+            max-width: 1300px;
+            margin: 40px auto;
+            padding: 0 20px;
+            width: 100%;
+            flex: 1;
+        }
+
+        .contact-title {
+            font-size: 25x;
+            font-weight: 800;
+            color: #7b92ff;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .contact-card {
+            background-color: #435c91;
+            border: 1px solid #1e293b;
+            border-radius: 16px;
+            padding: 28px 24px;
+            /* Padding diperbesar agar card terasa lebih panjang dan luas */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-4px);
+            border-color: #7b92ff;
+            background-color: #1a233a;
+        }
+
+        .contact-card-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* Warna Icon Dikembalikan ke Tema Gelap & Senada */
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background-color: #0b1020;
+            border: 1px solid #26304d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #f8f8f8;
+            flex-shrink: 0;
+        }
+
+        .contact-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .contact-info p {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+
+        /* Styling Icon Panah di Pojok Kanan Card */
+        .contact-arrow {
+            color: #64748b;
+            font-size: 16px;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .contact-card:hover .contact-arrow {
+            color: #7b92ff;
+            transform: translate(2px, -2px);
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #111827;
+            color: #eef2ff;
+            padding: 25px 20px;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer p {
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 10px;
+            }
+
+            .nav-box {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0;
+            }
+
+            .navbar .logo {
+                font-size: 18px;
+            }
+
+            .nav-link {
+                gap: 10px;
+            }
+
+            .nav-link a {
+                font-size: 15px;
+            }
+
+            .skill-card {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-box">
+            <span class="logo">RHH</span>
+            <ul class="nav-link">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main class="contact-container">
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            Available for work and internships
+        </div>
+        <h2 class="contact-title">Contact</h2>
+        <div class="contact-grid">
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/6281251231586" target="_blank" class="contact-card">
+                <div class="contact-card-left">
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>WhatsApp</h3>
+                        <p>+62 812-5123-1586</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://github.com/RanggaHijriawanHaryadi" target="_blank" class="contact-card">
+                <div class="contact-card-left">
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-github"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>GitHub</h3>
+                        <p>RanggaHijriawanHaryadi</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+            </a>
+
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/rangga-hijriawan-haryadi-b053a9370" target="_blank"
+                class="contact-card">
+                <div class="contact-card-left">
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>LinkedIn</h3>
+                        <p>Rangga Hijriawan Haryadi</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+            </a>
+
+            <!-- Email -->
+            <a href="mailto:ranggahrydi04@gmail.com" class="contact-card">
+                <div class="contact-card-left">
+                    <div class="contact-icon">
+                        <i class="fa-regular fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Email</h3>
+                        <p>ranggahrydi04@gmail.com</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+            </a>
+
+            <!-- Instagram -->
+            <a href="https://instagram.com/ranggah44" target="_blank" class="contact-card">
+                <div class="contact-card-left">
+                    <div class="contact-icon">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Instagram</h3>
+                        <p>@ranggah44</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-up-right-from-square contact-arrow"></i>
+            </a>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Rangga Hijriawan Haryadi. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

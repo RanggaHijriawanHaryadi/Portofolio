@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project - Rangga Hijriawan Haryadi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-y: scroll;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #0b1020;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.200) 1px, transparent 1px);
+            background-size: 24px 24px;
+            position: relative;
+
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 20px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            background-color: #0b1020e7;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #26304d;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-box {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 10px;
+
+        }
+
+        .navbar a {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgb(218, 217, 217);
+        }
+
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .nav-link a {
+            text-decoration: none;
+            padding: 10px 10px;
+            border-radius: 20px;
+        }
+
+        .nav-link a:hover {
+            background-color: #7b91ff42;
+            color: white;
+        }
+
+        .nav-link a.active {
+            background-color: #7b92ff !important;
+            color: black !important;
+        }
+
+        .box-project {
+            width: 100%;
+            border-bottom: 2px solid #26304d
+        }
+
+        .projects {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 20px;
+        }
+
+        .projects h1 {
+            font-size: 25px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: #7b92ff;
+            margin-bottom: 12px;
+        }
+
+        .projects .description {
+            font-size: 20px;
+            color: #94a3b8;
+            margin-bottom: 40px;
+        }
+
+        .project-link {
+            text-decoration: none;
+        }
+
+
+        .grid-projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .project-card {
+            background-color: rgb(255, 255, 255);
+            border: 1px solid #1e293b;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+            border-bottom: #1e293b;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: #076cf9;
+
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #111827;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+        }
+
+        .project-grid {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .card-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: black;
+        }
+
+        .type {
+            background-color: #6366f1;
+            color: #ffffffc8;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .card-body p {
+            font-size: 16px;
+            color: black;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .card-footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .tag-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            background-color: #1c2339d7;
+            color: white;
+            border: 1px solid white;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 18px;
+            border-radius: 20px;
+        }
+
+        .project-arrow {
+            color: #404b5a;
+            font-size: 15px;
+            background-color: #b9baba;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .project-card:hover .project-arrow {
+            background-color: #7b92ff;
+            color: white;
+            transform: translate(2px, -2px);
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #111827;
+            color: #eef2ff;
+            padding: 25px 20px;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer p {
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 10px;
+            }
+
+            .nav-box {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0;
+            }
+
+            .navbar .logo {
+                font-size: 18px;
+            }
+
+            .nav-link {
+                gap: 10px;
+            }
+
+            .nav-link a {
+                font-size: 15px;
+            }
+
+            .grid-projects {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-box">
+            <span class="logo">RHH</span>
+            <ul class="nav-link">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html" class="active">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="box-project">
+        <div class="projects">
+            <h1>PROJECTS</h1>
+
+            <div class="grid-projects">
+                <div class="project-card">
+                    <a href="https://github.com/username-anda/nama-repositori" target="_blank" class="project-link">
+                        <div class="project-image">
+                            <img src="foto1.png" alt="LapakKupon">
+                        </div>
+                        <div class="project-grid">
+                            <div>
+                                <div class="card-header">
+                                    <h2>Sistem Pembagian Kupon dan Pemesanan produk menggunakan framework Laravel</h2>
+                                </div>
+                                <div class="card-body">
+                                    <p>A web application designed for a product ordering system that uses coupons</p>
+                                </div>
+                            </div>
+                            <div class="card-footer-content">
+                                <div class="tag-content">
+                                    <span class="tag"><i class="devicon-php-plain colored"></i> PHP</span>
+                                    <span class="tag"><i class="devicon-laravel-plain colored"></i> Laravel</span>
+                                    <span class="tag"><i class="devicon-tailwindcss-plain colored"></i> Tailwind
+                                        CSS</span>
+                                </div>
+                                <div class="project-arrow">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <a href="https://github.com/RanggaHijriawanHaryadi/A13_063.git" target="_blank"
+                        class="project-link">
+                        <div class="project-image">
+                            <img src="foto3.jpg" alt="tiket festival">
+                        </div>
+                        <div class="project-grid">
+                            <div>
+                                <div class="card-header">
+                                    <h2>Sistem Mobile Ticket Festival</h2>
+                                </div>
+                                <div class="card-body">
+                                    <p>The mobile application is designed to facilitate the ticket purchasing system.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card-footer-content">
+                                <div class="tag-content">
+                                    <span class="tag"><i class="devicon-kotlin-plain colored"></i> Kotlin</span>
+                                </div>
+                                <div class="project-arrow">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Rangga Hijriawan Haryadi. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

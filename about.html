@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Rangga Hijriawan Haryadi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-y: scroll;
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #0b1020;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.200) 1px, transparent 1px);
+            background-size: 24px 24px;
+            position: relative;
+
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 20px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            background-color: #0b1020e7;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #26304d;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-box {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 10px;
+
+        }
+
+        .navbar a {
+            font-size: 18px;
+            font-weight: 600;
+            color: rgb(218, 217, 217);
+        }
+
+        .navbar .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .nav-link a {
+            text-decoration: none;
+            padding: 10px 10px;
+            border-radius: 20px;
+        }
+
+        .nav-link a:hover {
+            background-color: #7b91ff42;
+            color: white;
+        }
+
+        .nav-link a.active {
+            background-color: #7b92ff !important;
+            color: black !important;
+        }
+
+        .box {
+            width: 100%;
+            border-bottom: 2px solid #26304d;
+        }
+
+        .box-journey {
+            max-width: 1300px;
+            margin: 0 auto 30px auto;
+            padding: 25px 20px;
+        }
+
+        .journey-tag {
+            font-size: 16px;
+            font-weight: 600;
+            color: #7b92ff;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .box-journey h2 {
+            font-size: 25px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+            padding: 10px 10px;
+        }
+
+        .journey-timeline {
+            position: relative;
+            padding-left: 24px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            top: 24px;
+            bottom: 24px;
+            left: 7px;
+            width: 2px;
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .journey-sma,
+        .journey-organisasi,
+        .journey-magang,
+        .journey-kuliah {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .timeline {
+            position: absolute;
+            left: -24px;
+            top: 20px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: #0b1020;
+            border: 3px solid #38ef7d;
+            z-index: 2;
+        }
+
+        .card-journey {
+            width: 100%;
+            background-color: #1c233983;
+            border-radius: 16px;
+            padding: 24px;
+            border-left: 4px solid transparent;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            list-style: none;
+        }
+
+        .card-journey:hover {
+            transform: translateX(4px);
+        }
+
+        .journey-groups {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .year {
+            font-size: 14px;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+
+        .month {
+            font-size: 14px;
+            font-weight: 600;
+            color: #94a3b8;
+        }
+
+        .card-journey h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .card-journey {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+
+        .sma-item .timeline {
+            border-color: #2ebd6e;
+        }
+
+        .sma-item .card-journey {
+            border-left-color: #2ebd6e;
+        }
+
+        .tag-sma {
+            background-color: #2ebd6e;
+            color: #042914;
+        }
+
+        .organisasi-item .timeline {
+            border-color: #ffb703;
+        }
+
+        .organisasi-item .card-journey {
+            border-left-color: #ffb703;
+        }
+
+        .tag-organisasi {
+            background-color: #ffb703;
+            color: #2b1d00;
+        }
+
+
+        .magang-item .timeline {
+            border-color: #06b6d4;
+        }
+
+        .magang-item .card-journey {
+            border-left-color: #06b6d4;
+        }
+
+        .tag-magang {
+            background-color: #06b6d4;
+            color: #00272d;
+        }
+
+        .kuliah-item .timeline {
+            border-color: #7b92ff;
+        }
+
+        .kuliah-item .card-journey {
+            border-left-color: #7b92ff;
+        }
+
+        .tag-kuliah {
+            background-color: #7b92ff;
+            color: #0b1020;
+        }
+
+        .tags {
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+        }
+
+        .box-skill {
+            width: 100%;
+        }
+
+        .skills {
+            max-width: 1300px;
+            margin: 0 auto 50px auto;
+            padding: 25px 20px;
+        }
+
+        .skills-tag {
+            font-size: 16px;
+            font-weight: 600;
+            color: #7b92ff;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .skills h2 {
+            font-size: 30px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .skill-card {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .skill-fullstack-web,
+        .skill-Database,
+        .skill-Ui-Ux,
+        .skill-fullstack-mobile {
+            background-color: #1c233983;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 28px;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+        }
+
+        .skill-icon {
+            display: flex;
+            padding: auto;
+            width: 44px;
+            height: 44px;
+            background-color: #06080f;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: white;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+        }
+
+        .skill-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            font-size: 14px;
+            color: #94a3b8;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .skill-fullstack-web:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(15, 112, 248, 0.3);
+            border-color: rgb(123, 145, 255);
+        }
+
+        .skill-Database:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 183, 3, 0.3);
+            border-color: #ffb703;
+        }
+
+        .skill-Ui-Ux:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(236, 72, 153, 0.3);
+            border-color: palevioletred;
+        }
+
+        .skill-fullstack-mobile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(56, 239, 125, 0.3);
+            border-color: #38ef7d;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #111827;
+            color: #eef2ff;
+            padding: 25px 20px;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer p {
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 10px 10px;
+            }
+
+            .nav-box {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0;
+            }
+
+            .navbar .logo {
+                font-size: 18px;
+            }
+
+            .nav-link {
+                gap: 10px;
+            }
+
+            .nav-link a {
+                font-size: 15px;
+            }
+
+            .skill-card {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-box">
+            <span class="logo">RHH</span>
+            <ul class="nav-link">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="box">
+        <div class="box-journey">
+            <span class="journey-tag">JOURNEY</span>
+            <h2>Education</h2>
+
+            <div class="journey-timeline">
+                <div class="journey-sma sma-item">
+                    <div class="timeline"></div>
+                    <div class="card-journey">
+                        <div class="journey-groups">
+                            <span class="tags tag-sma">High school</span>
+                            <span class="year">2019 – 2022</span>
+                        </div>
+                        <h3>SMAIT Abu Bakar Boarding School Kulon Progo</h3>
+                        <ui>
+                            <li>Majored in Natural Sciences (IPA)</li>
+                        </ui>
+                    </div>
+                </div>
+
+                <div class="journey-kuliah kuliah-item">
+                    <div class="timeline"></div>
+                    <div class="card-journey">
+                        <div class="journey-groups">
+                            <span class="tags tag-kuliah">University Muhammadiyah Yogyakarta</span>
+                            <span class="year">2022 – 2026</span>
+                        </div>
+                        <h3>S1 Teknologi Informasi</h3>
+                        <ui>
+                            <li>IPK: 3.56</li>
+                            <li>Focus: Full-Stack Web Development, UI/UX design</li>
+                            <li>Bachelor's Thesis: Software Development of a Web-Based Coupon and Product Ordering
+                                System Using Laravel</li>
+                        </ui>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Organization</h2>
+
+            <div class="journey-timeline">
+
+                <div class="journey-organisasi organisasi-item">
+                    <div class="timeline"></div>
+                    <div class="card-journey">
+                        <div class="journey-groups">
+                            <span class="tags tag-organisasi">Organization</span>
+                            <span class="year">2023 – 2024</span>
+                        </div>
+                        <h3>Keluarga Mahasiswa Teknologi Informasi (KMTI)</h3>
+                        <ui>
+                            <li>Responsible for executing assigned work programs throughout the tenure.</li>
+                            <li>Successfully delivered division work programs aligned with organizational goals.</li>
+                            <li>Collaborated effectively with fellow members during program execution.</li>
+                        </ui>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Experience</h2>
+
+            <div class="journey-timeline">
+
+                <div class="journey-magang magang-item">
+                    <div class="timeline"></div>
+                    <div class="card-journey">
+                        <div class="journey-groups">
+                            <span class="tags tag-magang">Apprenticeship</span>
+                            <span class="month">13 Oktober 2025 - 13 Desember 2025</span>
+                        </div>
+                        <h3>Direktorat Digital dan Informasi UMY</h3>
+                        <ui>
+                            <li>Collaborated in a 3-person team to develop a risk identification web application.</li>
+                            <li>Reported weekly progress updates regularly to the supervisor.</li>
+                            <li>Designed and implemented a structured backend system to ensure all application features
+                                function seamlessly.</li>
+                        </ui>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="box-skill">
+        <div class="skills">
+            <span class="skills-tag">SKILLS</span>
+            <h2>What I can do</h2>
+            <div class="skill-card">
+
+                <div class="skill-fullstack-web">
+                    <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3>Full-Stack Web</h3>
+                    <p>End-to-end web apps, from interface to server.</p>
+                </div>
+
+                <div class="skill-Database">
+                    <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+                    <h3>Database Design</h3>
+                    <p>Structuring data so apps stay fast and clear.</p>
+                </div>
+
+                <div class="skill-Ui-Ux">
+                    <div class="skill-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                    <h3>UI/UX Design</h3>
+                    <p>Clean, usable layouts people enjoy.</p>
+                </div>
+
+                <div class="skill-fullstack-mobile">
+                    <div class="skill-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+                    <h3>Full-Stack Mobile</h3>
+                    <p>Mobile apps with a connected backend.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Rangga Hijriawan Haryadi. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
